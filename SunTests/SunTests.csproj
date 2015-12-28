@@ -44,10 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComponentTests.cs" />
     <Compile Include="IntegrationTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SunApi\SunApi.csproj">
+      <Project>{0cf85222-57f2-4ac4-8d79-43091a62b1fa}</Project>
+      <Name>SunApi</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SunLib\SunLib.csproj">
       <Project>{86abcaed-4b3a-4ff8-9115-668db08c75ea}</Project>
       <Name>SunLib</Name>

@@ -16,13 +16,15 @@ namespace SunApi.Controllers
         // Sample request so far: http://sunriseandfall.azurewebsites.net/api/sunrise?lat=57.13&lon=17.1759&date=2015-11-30
         // localhost:4410/api/sunrise?lat=59.76&lon=17.13&date=2015-11-30
         // GET: api/sunrise?lat=57.3&lon=17.16&2015-11-30
-        public astrodata Get(double lat, double lon, DateTime date)
+        public Astrodata Get(double lat, double lon, DateTime date)
         {
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
+
             YrNoAdapter adapter = new YrNoAdapter();
             var result = adapter.GetSunInfo(lat, lon, date);
 
             //return result.InnerXml;
-            return new astrodata();
+            return new Astrodata();
         }
 
         // GET: api/sunrise
