@@ -147,6 +147,9 @@ publish/
 csx/
 *.build.csdef
 
+# Application Insights config file
+ApplicationInsights.config
+
 # Windows Store app package directory
 AppPackages/
 
