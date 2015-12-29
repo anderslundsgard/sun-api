@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Runtime.InteropServices.ComTypes;
 using System.Web.Http;
-using System.Xml;
-using SunApi.Models;
 using SunLib;
+using SunLib.Models;
 
 namespace SunApi.Controllers
 {

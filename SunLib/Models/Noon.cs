@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Xml.Serialization;
 
-namespace SunApi.Models
+namespace SunLib.Models
 {
     public class Noon
     {
