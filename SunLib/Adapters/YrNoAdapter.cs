@@ -8,7 +8,12 @@ using RestSharp;
 
 namespace SunLib
 {
-    public class YrNoAdapter
+    public interface IYrNoAdapter
+    {
+        XmlDocument GetSunInfo(double lat, double lon, DateTime date);
+    }
+
+    public class YrNoAdapter : IYrNoAdapter
     {
         public XmlDocument GetSunInfo(double lat, double lon, DateTime date)
         {

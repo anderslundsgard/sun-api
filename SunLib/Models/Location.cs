@@ -5,10 +5,10 @@ namespace SunLib.Models
     public class Location
     {
         [XmlAttribute("latitude")]
-        public long Lat { get; set; }
+        public double Lat { get; set; }
 
         [XmlAttribute("longitude")]
-        public long Long { get; set; }
+        public double Long { get; set; }
 
         [XmlElement("sun")]
         public Sun Sun { get; set; }

@@ -9,6 +9,6 @@ namespace SunLib.Models
     public class Noon
     {
         [XmlAttribute("altitude")]
-        public long Altitude { get; set; }
+        public double Altitude { get; set; }
     }
 }
