@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using SunLib;
 using SunLib.Models;
+using SunLib.Utils;
 
 namespace SunApi.Controllers
 {
@@ -18,11 +19,13 @@ namespace SunApi.Controllers
         {
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
 
-            YrNoAdapter adapter = new YrNoAdapter();
-            var result = adapter.GetSunInfo(lat, lon, date);
+            IYrNoAdapter adapter = new YrNoAdapter();
+            IYrNoResultParser parser = new YrNoResultParser();
 
-            //return result.InnerXml;
-            return new Astrodata();
+            var doc = adapter.GetSunInfo(lat, lon, date);
+            var astrodata = parser.GetAstrodataByResult(doc);
+
+            return astrodata;
         }
 
         // GET: api/sunrise
