@@ -10,11 +10,29 @@ using SunLib.Utils;
 
 namespace SunApi.Controllers
 {
+    /// <summary>
+    /// API for sun and moon rise and fall
+    /// </summary>
     public class SunriseController : ApiController
     {
         // Sample request so far: http://sunriseandfall.azurewebsites.net/api/sunrise?lat=57.13&lon=17.1759&date=2015-11-30
         // localhost:4410/api/sunrise?lat=59.76&lon=17.13&date=2015-11-30
         // GET: api/sunrise?lat=57.3&lon=17.16&2015-11-30
+        /// <summary>
+        /// The get.
+        /// </summary>
+        /// <param name="lat">
+        /// The lat.
+        /// </param>
+        /// <param name="lon">
+        /// The lon.
+        /// </param>
+        /// <param name="date">
+        /// The date.
+        /// </param>
+        /// <returns>
+        /// The <see cref="Astrodata"/>.
+        /// </returns>
         public Astrodata Get(double lat, double lon, DateTime date)
         {
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
@@ -29,7 +47,7 @@ namespace SunApi.Controllers
         }
 
         // GET: api/sunrise
-        public IEnumerable<string> Get()
+        public IEnumerable<string> Test()
         {
             return new string[] { "Just", "Test", "Call" };
         }
