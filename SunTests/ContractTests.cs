@@ -24,9 +24,9 @@ namespace SunTests
         [Test]
         public void OwinAppTest()
         {
-            using (var server = TestServer.Create<MyStartup>())
+            using (var server = TestServer.Create<Startup>())
             {
-                var response = server.HttpClient.GetAsync("/").Result;
+                var response = server.HttpClient.GetAsync("/api/sunrise").Result;
                 var content = response.Content.ReadAsStringAsync().Result;
                 Assert.IsTrue(content.Contains("Hello world using OWIN TestServer"));
             }

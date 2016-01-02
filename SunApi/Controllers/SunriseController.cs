@@ -47,9 +47,10 @@ namespace SunApi.Controllers
         }
 
         // GET: api/sunrise
-        public IEnumerable<string> Test()
+        [HttpGet]
+        public IEnumerable<string> Index()
         {
-            return new string[] { "Just", "Test", "Call" };
+            return new string[] { "Refer", "to", "Swagger", "documentation" };
         }
 
         //// get: api/sun/5
