@@ -33,6 +33,7 @@ namespace SunApi.Controllers
         /// <returns>
         /// The <see cref="Astrodata"/>.
         /// </returns>
+        [HttpGet]
         public Astrodata Get(double lat, double lon, DateTime date)
         {
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;

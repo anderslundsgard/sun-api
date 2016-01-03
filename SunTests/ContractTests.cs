@@ -21,15 +21,33 @@ namespace SunTests
     [TestFixture]
     public class ContractTests
     {
-        [Test]
-        public void OwinAppTest()
+        TestServer _server;
+
+        [SetUp]
+        public void SetUp()
         {
-            using (var server = TestServer.Create<Startup>())
-            {
-                var response = server.HttpClient.GetAsync("/api/sunrise").Result;
-                var content = response.Content.ReadAsStringAsync().Result;
-                Assert.IsTrue(content.Contains("Hello world using OWIN TestServer"));
-            }
+            this._server = TestServer.Create<Startup>();
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            this._server.Dispose();
+        } 
+
+        [Test]
+        public void Verify_ApiSunrise_Root()
+        {
+            // Arrange
+            var uri = "/api/sunrise";
+            var expectedresult = "[\"Refer\",\"to\",\"Swagger\",\"documentation\"]";
+            
+            // Act
+            var response = this._server.HttpClient.GetAsync(uri).Result;
+            var content = response.Content.ReadAsStringAsync().Result;
+
+            // Assert
+            Assert.AreEqual(content, expectedresult);
         }
     }
 
