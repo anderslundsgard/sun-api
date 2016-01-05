@@ -36,7 +36,8 @@ namespace SunApi.Controllers
         [HttpGet]
         public Astrodata Get(double lat, double lon, DateTime date)
         {
-            GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
+            //GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
+            //GlobalConfiguration.Configuration.Formatters.XmlFormatter.WriterSettings.OmitXmlDeclaration = false;
 
             IYrNoAdapter adapter = new YrNoAdapter();
             IYrNoResultParser parser = new YrNoResultParser();

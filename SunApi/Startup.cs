@@ -19,6 +19,7 @@ namespace SunApi
             HttpConfiguration config = new HttpConfiguration();
 
             config.Formatters.XmlFormatter.UseXmlSerializer = true;
+            config.Formatters.XmlFormatter.WriterSettings.OmitXmlDeclaration = false;
             config.MapHttpAttributeRoutes();
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
