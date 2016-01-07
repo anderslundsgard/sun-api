@@ -48,13 +48,6 @@ namespace SunApi.Controllers
             return astrodata;
         }
 
-        // GET: api/sunrise
-        [HttpGet]
-        public IEnumerable<string> Index()
-        {
-            return new string[] { "Refer", "to", "Swagger", "documentation" };
-        }
-
         //// get: api/sun/5
         //public string get(int id)
         //{

@@ -34,20 +34,6 @@ namespace SunTests
         public void TearDown()
         {
             this._server.Dispose();
-        } 
-
-        [Test]
-        public void Verify_ApiSunrise_Root()
-        {
-            // Arrange
-            var uri = "/api/sunrise";
-            var expectedxmlresult = "<?xml version=\"1.0\" encoding=\"utf-8\"?><ArrayOfString xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"><string>Refer</string><string>to</string><string>Swagger</string><string>documentation</string></ArrayOfString>";
-
-            // Act
-            var returnedXml = this.GetXmlRequest(uri);
-
-            // Assert
-            Assert.AreEqual(returnedXml, expectedxmlresult);
         }
 
         [Test]
