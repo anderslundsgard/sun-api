@@ -10,6 +10,8 @@ using SunLib.Utils;
 
 namespace SunApi.Controllers
 {
+    using SunApi.Misc;
+
     /// <summary>
     /// API for sun and moon rise and fall
     /// </summary>
@@ -33,17 +35,49 @@ namespace SunApi.Controllers
         /// <returns>
         /// The <see cref="Astrodata"/>.
         /// </returns>
-        [HttpGet]
-        public Astrodata Get(double lat, double lon, DateTime date)
-        {
-            //GlobalConfiguration.Configuration.Formatters.XmlFormatter.UseXmlSerializer = true;
-            //GlobalConfiguration.Configuration.Formatters.XmlFormatter.WriterSettings.OmitXmlDeclaration = false;
+        //[HttpGet]
+        //public Astrodata Get(double lat, double lon, DateTime date)
+        //{
+        //    var astrodata = GetAstrodata(lat, lon, date);
 
+        //    return astrodata;
+        //}
+
+        // GET: api/sunrise
+        [HttpGet]
+        public Astrodata Get()
+        {
+            Astrodata astrodata;
+            try
+            {
+                astrodata = GetAstrodata(this.Request.RequestUri.Query);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Nagat fel hände... " + ex.Message + "  -  " + ex.InnerException.StackTrace);
+            }
+
+            return astrodata;
+        }
+
+        private static Astrodata GetAstrodata(double lat, double lon, DateTime date)
+        {
             IYrNoAdapter adapter = new YrNoAdapter();
             IYrNoResultParser parser = new YrNoResultParser();
 
             var doc = adapter.GetSunInfo(lat, lon, date);
             var astrodata = parser.GetAstrodataByResult(doc);
+
+            return astrodata;
+        }
+
+        private static Astrodata GetAstrodata(string querystring)
+        {
+            double lat, lon;
+            DateTime date;
+
+            SunApiQueryStringParser.Parse(querystring, out lat, out lon, out date);
+            var astrodata = GetAstrodata(lat, lon, date);
 
             return astrodata;
         }
