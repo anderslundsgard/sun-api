@@ -1,11 +1,11 @@
-﻿using System;
-using System.IO;
-using System.Xml.Serialization;
-using NUnit.Framework;
-using SunLib.Models;
-
-namespace SunTests
+﻿namespace SunTests
 {
+    using System;
+    using System.IO;
+    using System.Xml.Serialization;
+    using NUnit.Framework;
+    using SunLib.Models;
+
     [TestFixture]
     public class ComponentTests
     {

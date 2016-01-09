@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-using SunLib;
-using SunLib.Models;
-using SunLib.Utils;
-
-namespace SunTests
+﻿namespace SunTests
 {
+    using System;
+    using NUnit.Framework;
+    using SunLib.Adapters;
+    using SunLib.Models;
+    using SunLib.Utils;
+
     [TestFixture]
     public class IntegrationTests
     {
+        private readonly DateTime _date = new DateTime(2015, 11, 26);
+
         private double _lat = 59.158516;
         private double _lon = 17.645391;
-
-        readonly DateTime _date = new DateTime(2015, 11, 26);
 
         [Test]
         public void Basic_YrNo_Call()

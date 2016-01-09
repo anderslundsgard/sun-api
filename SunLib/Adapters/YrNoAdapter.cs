@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
 using System.Xml;
 using RestSharp;
 
-namespace SunLib
+namespace SunLib.Adapters
 {
-    using System.Globalization;
-
     public interface IYrNoAdapter
     {
         XmlDocument GetSunInfo(double lat, double lon, DateTime date);

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Xml.Serialization;
-
-namespace SunLib.Models
+﻿namespace SunLib.Models
 {
+    using System.Xml.Serialization;
+
     public class Noon
     {
         [XmlAttribute("altitude")]

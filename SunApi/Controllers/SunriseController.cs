@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using SunLib;
-using SunLib.Models;
-using SunLib.Utils;
-
-namespace SunApi.Controllers
+﻿namespace SunApi.Controllers
 {
-    using SunApi.Misc;
+    using System;
+    using System.Web.Http;
+    using Misc;
+    using SunLib.Adapters;
+    using SunLib.Models;
+    using SunLib.Utils;
 
     /// <summary>
     /// API for sun and moon rise and fall
@@ -18,32 +13,8 @@ namespace SunApi.Controllers
     public class SunriseController : ApiController
     {
         // Sample request so far: http://sunriseandfall.azurewebsites.net/api/sunrise?lat=57.13&lon=17.1759&date=2015-11-30
-        // localhost:4410/api/sunrise?lat=59.76&lon=17.13&date=2015-11-30
-        // GET: api/sunrise?lat=57.3&lon=17.16&2015-11-30
-        /// <summary>
-        /// The get.
-        /// </summary>
-        /// <param name="lat">
-        /// The lat.
-        /// </param>
-        /// <param name="lon">
-        /// The lon.
-        /// </param>
-        /// <param name="date">
-        /// The date.
-        /// </param>
-        /// <returns>
-        /// The <see cref="Astrodata"/>.
-        /// </returns>
-        //[HttpGet]
-        //public Astrodata Get(double lat, double lon, DateTime date)
-        //{
-        //    var astrodata = GetAstrodata(lat, lon, date);
-
-        //    return astrodata;
-        //}
-
-        // GET: api/sunrise
+        // localhost:4410/api/sunrise/?lat=59.76&lon=17.13&date=2015-11-30
+        // GET: api/sunrise/?lat=57.3&lon=17.16&2015-11-30
         [HttpGet]
         public Astrodata Get()
         {

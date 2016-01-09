@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Xml.Serialization;
-
-namespace SunLib.Models
+﻿namespace SunLib.Models
 {
+    using System;
+    using System.Xml.Serialization;
+
     public class Moon
     {
+        public Moon()
+        {
+            this.Phase = "Unknown";
+        }
+
         [XmlAttribute("phase")]
         public string Phase { get; set; }
 
@@ -16,10 +18,5 @@ namespace SunLib.Models
 
         [XmlAttribute("set")]
         public DateTime Set { get; set; }
-
-        public Moon()
-        {
-            this.Phase = "Unknown";
-        }
     }
 }

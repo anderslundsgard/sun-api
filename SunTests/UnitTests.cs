@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
-
-namespace SunTests
+﻿namespace SunTests
 {
-    using System.Security.Cryptography.X509Certificates;
-
+    using System;
+    using NUnit.Framework;
     using SunApi.Misc;
 
     [TestFixture]
