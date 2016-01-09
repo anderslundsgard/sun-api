@@ -16,7 +16,7 @@ namespace SunLib.Models
 
         public Sun()
         {
-            Noon = new Noon();
+            this.Noon = new Noon();
         }
     }
 }

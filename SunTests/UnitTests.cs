@@ -37,12 +37,13 @@ namespace SunTests
         [TestCase("?lat=57.13&lon=17.1759&date=2015--11-30")]
         public void Parse_Invalid_QueryString_Should_Throw_Exception(string queryString)
         {
-            // Arrange
-            double lat, lon;
-            DateTime date;
-
             try
             {
+                // Arrange
+                double lat;
+                double lon;
+                DateTime date;
+                
                 // Act
                 SunApiQueryStringParser.Parse(queryString, out lat, out lon, out date);
                 Assert.Fail();

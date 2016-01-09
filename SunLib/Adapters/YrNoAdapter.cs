@@ -8,6 +8,8 @@ using RestSharp;
 
 namespace SunLib
 {
+    using System.Globalization;
+
     public interface IYrNoAdapter
     {
         XmlDocument GetSunInfo(double lat, double lon, DateTime date);
@@ -19,8 +21,8 @@ namespace SunLib
         {
             RestClient rest = new RestClient("http://api.yr.no/weatherapi/sunrise/1.1");
             string da = date.ToString("yyyy-MM-dd");
-            string la = lat.ToString().Replace(",", ".");
-            string lo = lon.ToString().Replace(",", ".");
+            string la = lat.ToString(CultureInfo.InvariantCulture).Replace(",", ".");
+            string lo = lon.ToString(CultureInfo.InvariantCulture).Replace(",", ".");
             RestRequest request = new RestRequest(string.Format($"?lat={la};lon={lo};date={da}"));
             var resp = rest.Get(request);
 

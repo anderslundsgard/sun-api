@@ -18,10 +18,10 @@ namespace SunLib.Models
 
         public Location()
         {
-            Lat = 99;
-            Long = 98;
-            Sun = new Sun();
-            Moon = new Moon();
+            this.Lat = 99;
+            this.Long = 98;
+            this.Sun = new Sun();
+            this.Moon = new Moon();
         }
     }
 }

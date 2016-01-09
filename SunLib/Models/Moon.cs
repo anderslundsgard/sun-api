@@ -19,7 +19,7 @@ namespace SunLib.Models
 
         public Moon()
         {
-            Phase = "Unknown";
+            this.Phase = "Unknown";
         }
     }
 }

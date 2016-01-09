@@ -10,7 +10,7 @@ namespace SunLib.Models
 
         public Astrodata()
         {
-            Data = new Data();
+            this.Data = new Data();
         }
     }
 }

@@ -26,7 +26,7 @@ namespace SunLib.Utils
             Moon moon = new Moon();
 
             var daystr = xml.SelectSingleNode(@"//time/@date")?.Value;
-            data.DateTime = GetDateTimeByYrNoDateString(daystr);
+            data.DateTime = this.GetDateTimeByYrNoDateString(daystr);
             
             var latitudestr = xml.SelectSingleNode(@"//time/location/@latitude")?.Value;
             location.Lat = double.Parse(latitudestr, NumberFormatInfo.InvariantInfo);
@@ -35,19 +35,19 @@ namespace SunLib.Utils
             location.Long = double.Parse(longitudestr, NumberFormatInfo.InvariantInfo);
 
             var sunrisestr = xml.SelectSingleNode(@"//time/location/sun/@rise")?.Value;
-            sun.Rise = GetDateTimeByYrNoDateTimeString(sunrisestr);
+            sun.Rise = this.GetDateTimeByYrNoDateTimeString(sunrisestr);
 
             var sunsetstr = xml.SelectSingleNode(@"//time/location/sun/@set")?.Value;
-            sun.Set = GetDateTimeByYrNoDateTimeString(sunsetstr);
+            sun.Set = this.GetDateTimeByYrNoDateTimeString(sunsetstr);
 
             var noonstr = xml.SelectSingleNode(@"//time/location/sun/noon/@altitude")?.Value;
             noon.Altitude = double.Parse(noonstr, NumberFormatInfo.InvariantInfo);
 
             var moonrisestr = xml.SelectSingleNode(@"//time/location/moon/@rise")?.Value;
-            moon.Rise = GetDateTimeByYrNoDateTimeString(moonrisestr);
+            moon.Rise = this.GetDateTimeByYrNoDateTimeString(moonrisestr);
 
             var moonsetstr = xml.SelectSingleNode(@"//time/location/moon/@set")?.Value;
-            moon.Set = GetDateTimeByYrNoDateTimeString(moonsetstr);
+            moon.Set = this.GetDateTimeByYrNoDateTimeString(moonsetstr);
 
             moon.Phase = xml.SelectSingleNode(@"//time/location/moon/@phase")?.Value;
 

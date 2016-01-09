@@ -13,7 +13,7 @@ namespace SunLib.Models
 
         public Data()
         {
-            Location = new Location();
+            this.Location = new Location();
         }
 
     }
