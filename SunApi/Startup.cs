@@ -3,13 +3,13 @@ using System.Web.Http;
 using Microsoft.Owin;
 using Owin;
 using System.Web.Mvc;
+using System.Net.Http.Formatting;
+using System.Web.Routing;
 
 [assembly: OwinStartup(typeof(SunApi.Startup))]
 
 namespace SunApi
 {
-    using System.Web.Routing;
-
     public class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -18,6 +18,8 @@ namespace SunApi
 
             HttpConfiguration config = new HttpConfiguration();
 
+            config.Formatters.Clear();
+            config.Formatters.Add(new XmlMediaTypeFormatter());
             config.Formatters.XmlFormatter.UseXmlSerializer = true;
             config.Formatters.XmlFormatter.WriterSettings.OmitXmlDeclaration = false;
             config.MapHttpAttributeRoutes();
