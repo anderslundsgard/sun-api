@@ -1,4 +1,6 @@
-﻿namespace SunTests
+﻿using System.Runtime.Remoting.Metadata.W3cXsd2001;
+
+namespace SunTests
 {
     using System;
     using NUnit.Framework;
@@ -9,19 +11,15 @@
     [TestFixture]
     public class IntegrationTests
     {
-        private readonly DateTime _date = new DateTime(2015, 11, 26);
-
-        private double _lat = 59.158516;
-        private double _lon = 17.645391;
-
-        [Test]
-        public void Basic_YrNo_Call()
+        [TestCase(59.158516, 17.645391, 2015, 11, 26, "<sun rise=\"2015-11-26T07:06:35Z\" set=\"2015-11-26T14:06:05Z\">")]
+        [TestCase(39.1, 19.4554, 2016, 04, 13, "sun rise=\"2016-04-13T04:08:07Z\" set=\"2016-04-13T17:17:46Z")]
+        public void Basic_YrNo_Call(double lat, double lon, int year, int month, int day, string expected)
         {
             IYrNoAdapter adapter = new YrNoAdapter();
             
-            var result = adapter.GetSunInfo(this._lat, this._lon, this._date);
+            var result = adapter.GetSunInfo(lat, lon, new DateTime(year, month, day));
 
-            Assert.IsTrue(result.InnerXml.Contains("<sun rise=\"2015-11-26T07:06:35Z\" set=\"2015-11-26T14:06:05Z\">"));
+            Assert.IsTrue(result.InnerXml.Contains(expected));
         }
 
         [Test]
@@ -29,7 +27,7 @@
         {
             IYrNoAdapter adapter = new YrNoAdapter();
 
-            var result = adapter.GetSunInfo(this._lat, this._lon, this._date);
+            var result = adapter.GetSunInfo(59.158516, 17.645391, new DateTime(2015, 11, 26));
             IYrNoResultParser parser = new YrNoResultParser();
             Astrodata data = parser.GetAstrodataByResult(result);
 
