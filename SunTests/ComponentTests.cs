@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using SunLib.Utils;
 
 namespace SunTests
 {

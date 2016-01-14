@@ -1,10 +1,7 @@
-﻿using System.Diagnostics;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Threading;
-
-namespace SunTests
+﻿namespace SunTests
 {
     using System;
+    using System.Threading;
     using NUnit.Framework;
     using SunLib.Adapters;
     using SunLib.Models;
@@ -72,7 +69,7 @@ namespace SunTests
 
                     Thread.Sleep(300);
                 }
-                catch (ArgumentNullException ex)
+                catch (ArgumentNullException)
                 {
                     i--; // Probably got a no rise result
                 }
