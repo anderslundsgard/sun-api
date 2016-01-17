@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Web;
 
 namespace SunApi.Misc
 {
@@ -14,6 +15,7 @@ namespace SunApi.Misc
                 date = DateTime.MinValue;
 
                 var qs = querystring.Replace("?", string.Empty).Replace("/", string.Empty);
+                qs = HttpUtility.UrlDecode(qs);
                 var parameters = qs.Split(';');
                 foreach (var parameter in parameters)
                 {
